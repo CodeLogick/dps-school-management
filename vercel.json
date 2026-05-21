@@ -1,0 +1,19 @@
+{
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "env": [
+    {
+      "key": "DATABASE_URL",
+      "description": "Neon PostgreSQL Connection String"
+    },
+    {
+      "key": "BLOB_READ_WRITE_TOKEN",
+      "description": "Vercel Blob Storage Token"
+    },
+    {
+      "key": "NEXTAUTH_SECRET",
+      "description": "NextAuth Secret Key"
+    }
+  ]
+}
