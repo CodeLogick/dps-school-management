@@ -1,4 +1,9 @@
 /** @type {import('next').NextConfig} */
+
+// 1. Load dotenv right at the top, pointing to your custom file path
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, './.env.local') });
+
 const nextConfig = {
   images: {
     remotePatterns: [

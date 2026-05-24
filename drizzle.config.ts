@@ -1,17 +1,15 @@
 import { defineConfig } from 'drizzle-kit';
+import * as dotenv from 'dotenv';
+import * as path from 'path';
 
-const dbUrl = process.env.DATABASE_URL;
-
-if (!dbUrl) {
-  console.log('ℹ️  DATABASE_URL not set - app will use mock data');
-}
+dotenv.config({ path: path.resolve(process.cwd(), './.env.local') });
 
 export default defineConfig({
-  schema: './src/db/schema.ts',
+  schema: './db/schema.ts',
   out: './drizzle',
-  driver: 'pg',
+  dialect: 'postgresql',
   dbCredentials: {
-    connectionString: dbUrl || 'postgresql://user:password@localhost:5432/dps',
+    url: process.env.DATABASE_URL!,
   },
   verbose: true,
   strict: true,
